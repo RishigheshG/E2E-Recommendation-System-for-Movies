@@ -6,11 +6,24 @@ This project covers:
 - Offline experimentation (baselines → ALS → diversity re-ranking)
 - Proper evaluation on validation/test splits
 - Model artifact export
-- FastAPI inference service with caching
+- FastAPI inference service with caching and fallbacks
 - Lightweight mobile demo (Expo / React Native) to showcase results
 
 > ⚠️ **Important**: This project is for learning, experimentation, and portfolio demonstration.  
 > It is **not a production consumer app**.
+
+---
+
+## What This Project Demonstrates
+
+- How to build and evaluate recommender systems beyond notebooks
+- Why baselines (Popularity, ItemKNN) matter before complex models
+- Proper offline evaluation with strict train/val/test separation
+- Trade-offs between relevance and diversity in recommendations
+- How to serve ML models via an API with caching and cold-start fallbacks
+- How to expose ML systems through a minimal mobile demo
+
+This project focuses on **ML system design**, not frontend or product UX.
 
 ---
 
@@ -22,6 +35,37 @@ Build a scalable movie recommendation system using implicit feedback, evaluate m
 **Dataset:**  
 - MovieLens 25M (GroupLens)
 - Dataset is **NOT committed** to GitHub (ignored via `.gitignore`)
+- Expected locally under `data/raw/ml-25m/`
+
+---
+
+## Repository Structure
+
+```
+E2E-Recommendation-System-for-Movies/
+│
+├── src/
+│   ├── api/        # FastAPI service
+│   ├── data/       # Data loading & preprocessing logic
+│   ├── eval/       # Evaluation metrics
+│   └── models/     # ALS, ItemKNN implementations
+│
+├── scripts/        # Offline experiment runners (eval_als.py, etc.)
+├── notebooks/      # Exploration / debugging notebooks
+├── demo-app/       # Expo (React Native) demo application
+│
+├── data/           # Local-only datasets (ignored)
+│   └── raw/ml-25m/
+│
+├── artifacts/      # Exported model bundles (ignored)
+├── assets/
+│   └── screenshots/
+│
+├── runs.json       # Logged experiment results
+├── baseline-2.txt  # Baseline notes
+├── README.md
+├── .gitignore
+```
 
 ---
 
@@ -94,7 +138,7 @@ The FastAPI backend:
 - Includes:
   - In-memory caching
   - Latency logging
-  - `/health`, `/stats`, `/recommend` endpoints
+  - `/health`, `/stats`, `/recommend`, `/compare` endpoints
 
 ### Run API locally
 
@@ -117,8 +161,8 @@ A minimal demo app to **visualize recommendations**, not a full product.
 Features:
 - Enter a `userId`
 - View:
-  - ALS recommendations
-  - Diverse recommendations
+  - ALS recommendations (accuracy-focused)
+  - Diverse recommendations (discovery-focused)
 - Displays movie titles & genres
 - Uses FastAPI backend
 

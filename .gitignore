@@ -4,3 +4,4 @@ __pycache__
 # Local-only (do not commit)
 data/
 artifacts/
+baseline-2.txt
