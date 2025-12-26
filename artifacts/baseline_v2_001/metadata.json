@@ -1,0 +1,17 @@
+{
+  "dataset": "MovieLens 25M",
+  "rating_threshold": 4.0,
+  "bm25_on": false,
+  "als_params": {
+    "factors": 64,
+    "regularization": 0.01,
+    "iterations": 15
+  },
+  "user_item_shape": [
+    162295,
+    40695
+  ],
+  "n_users": 162295,
+  "n_items": 40695,
+  "exported_at": "2025-12-22 19:14:17"
+}

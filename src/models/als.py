@@ -123,29 +123,44 @@ class ALSRecommender:
         if user_idx < 0 or user_idx >= self.user_item_csr.shape[0]:
             return []
 
-        # Work around implicit's strict user_items shape check by passing a single-row
-        # user×item CSR matrix for this user and asking implicit to recalculate the
-        # user's factors from this row.
-        user_row = self.user_item_csr[user_idx]  # shape: (1, n_items), CSR
+        # Ask for more than k so we can filter and still return k items
+        request_n = max(self.k * 3, self.k + 20)
 
-        item_indices, _ = self.model.recommend(
-            0,
-            user_row,
-            N=self.k,
-            recalculate_user=True,
-        )
+        # Try the standard (fast) implicit recommend call first.
+        # This should be the preferred path when implicit accepts the full user×item matrix.
+        try:
+            item_indices, _ = self.model.recommend(
+                user_idx,
+                self.user_item_csr,
+                N=request_n,
+                filter_already_liked_items=True,
+            )
+            seen_items = None  # already handled by implicit
+        except ValueError as e:
+            # Some implicit versions raise:
+            # "user_items must contain 1 row for every user in userids"
+            # Fall back to a single-row matrix and recalculate_user=True.
+            if "user_items must contain 1 row for every user" not in str(e):
+                raise
 
-        # Filter out items the user has already interacted with in training
-        seen_items = set(user_row.indices)
+            user_row = self.user_item_csr[user_idx]  # shape: (1, n_items), CSR
+            item_indices, _ = self.model.recommend(
+                0,
+                user_row,
+                N=request_n,
+                recalculate_user=True,
+            )
+            # We'll filter already-seen items manually on the fallback path
+            seen_items = set(user_row.indices)
 
         mapped: List[int] = []
         n_items = len(self.index_to_item_list) if self.index_to_item_list is not None else 0
         for i in item_indices:
             ii = int(i)
-            if ii in seen_items:
+            if seen_items is not None and ii in seen_items:
                 continue
             if 0 <= ii < n_items:
                 raw = self.index_to_item_list[ii]
                 if raw is not None:
                     mapped.append(raw)
-        return mapped
+        return mapped[: self.k]

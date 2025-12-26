@@ -1,0 +1,2688 @@
+[
+  {
+    "run_id": "als_bm25_movielens25m_2025-12-21_1",
+    "date": "2025-12-21",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "evaluation": {
+      "k": 10,
+      "subsample_test_users": 10000,
+      "random_seed": 42,
+      "n_users_eval": 9989,
+      "hit_users": 1027,
+      "skipped_empty_true": 11,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 4.0,
+      "use_ratings": false,
+      "weighting": {
+        "method": "bm25",
+        "K1": 100,
+        "B": 0.8
+      }
+    },
+    "model": {
+      "name": "implicit-als",
+      "implementation": "implicit.als.AlternatingLeastSquares",
+      "params": {
+        "factors": 64,
+        "regularization": 0.01,
+        "iterations": 15
+      },
+      "recommendation_mode": "auto_fast_then_fallback_recalculate_user"
+    },
+    "metrics": {
+      "precision@10": 0.010281309440384424,
+      "recall@10": 0.10281309440384423,
+      "ndcg@10": 0.05097027955170613
+    },
+    "notes": "ALS beats popularity baseline (~2.3x on precision/recall/ndcg). Logged after fixing matrix orientation (user×item), BM25 weighting, and filtering already-seen items in fallback path."
+  },
+  {
+    "run_id": "als_bm25_movielens25m_2025-12-21_14-51-14_f64_r0.01_it15",
+    "tag": "baseline_v1_best",
+    "date": "2025-12-21",
+    "time": "14:51:14",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "evaluation": {
+      "k": 10,
+      "subsample_test_users": 10000,
+      "random_seed": 42,
+      "n_users_eval": 9989,
+      "hit_users": 1047,
+      "skipped_empty_true": 11,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 4.0,
+      "use_ratings": false,
+      "weighting": {
+        "method": "bm25",
+        "K1": 100,
+        "B": 0.8
+      }
+    },
+    "model": {
+      "name": "implicit-als",
+      "implementation": "implicit.als.AlternatingLeastSquares",
+      "params": {
+        "factors": 64,
+        "regularization": 0.01,
+        "iterations": 15
+      },
+      "recommendation_mode": "fast_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.010481529682650918,
+      "recall@10": 0.10481529682650916,
+      "ndcg@10": 0.05232172358126664
+    },
+    "notes": "Grid run logged from eval_als.py sweep."
+  },
+  {
+    "run_id": "als_bm25_movielens25m_2025-12-21_14-54-07_f64_r0.01_it30",
+    "date": "2025-12-21",
+    "time": "14:54:07",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "evaluation": {
+      "k": 10,
+      "subsample_test_users": 10000,
+      "random_seed": 42,
+      "n_users_eval": 9989,
+      "hit_users": 1041,
+      "skipped_empty_true": 11,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 4.0,
+      "use_ratings": false,
+      "weighting": {
+        "method": "bm25",
+        "K1": 100,
+        "B": 0.8
+      }
+    },
+    "model": {
+      "name": "implicit-als",
+      "implementation": "implicit.als.AlternatingLeastSquares",
+      "params": {
+        "factors": 64,
+        "regularization": 0.01,
+        "iterations": 30
+      },
+      "recommendation_mode": "fast_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.010421463609970968,
+      "recall@10": 0.10421463609970968,
+      "ndcg@10": 0.05139826366520185
+    },
+    "notes": "Grid run logged from eval_als.py sweep."
+  },
+  {
+    "run_id": "als_bm25_movielens25m_2025-12-21_14-55-36_f64_r0.05_it15",
+    "date": "2025-12-21",
+    "time": "14:55:36",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "evaluation": {
+      "k": 10,
+      "subsample_test_users": 10000,
+      "random_seed": 42,
+      "n_users_eval": 9989,
+      "hit_users": 1018,
+      "skipped_empty_true": 11,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 4.0,
+      "use_ratings": false,
+      "weighting": {
+        "method": "bm25",
+        "K1": 100,
+        "B": 0.8
+      }
+    },
+    "model": {
+      "name": "implicit-als",
+      "implementation": "implicit.als.AlternatingLeastSquares",
+      "params": {
+        "factors": 64,
+        "regularization": 0.05,
+        "iterations": 15
+      },
+      "recommendation_mode": "fast_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.010191210331364501,
+      "recall@10": 0.101912103313645,
+      "ndcg@10": 0.0511172232211993
+    },
+    "notes": "Grid run logged from eval_als.py sweep."
+  },
+  {
+    "run_id": "als_bm25_movielens25m_2025-12-21_14-57-57_f64_r0.05_it30",
+    "date": "2025-12-21",
+    "time": "14:57:57",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "evaluation": {
+      "k": 10,
+      "subsample_test_users": 10000,
+      "random_seed": 42,
+      "n_users_eval": 9989,
+      "hit_users": 1023,
+      "skipped_empty_true": 11,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 4.0,
+      "use_ratings": false,
+      "weighting": {
+        "method": "bm25",
+        "K1": 100,
+        "B": 0.8
+      }
+    },
+    "model": {
+      "name": "implicit-als",
+      "implementation": "implicit.als.AlternatingLeastSquares",
+      "params": {
+        "factors": 64,
+        "regularization": 0.05,
+        "iterations": 30
+      },
+      "recommendation_mode": "fast_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.010241265391931126,
+      "recall@10": 0.10241265391931124,
+      "ndcg@10": 0.051020387022236144
+    },
+    "notes": "Grid run logged from eval_als.py sweep."
+  },
+  {
+    "run_id": "als_bm25_movielens25m_2025-12-21_15-00-28_f128_r0.01_it15",
+    "date": "2025-12-21",
+    "time": "15:00:28",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "evaluation": {
+      "k": 10,
+      "subsample_test_users": 10000,
+      "random_seed": 42,
+      "n_users_eval": 9989,
+      "hit_users": 1018,
+      "skipped_empty_true": 11,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 4.0,
+      "use_ratings": false,
+      "weighting": {
+        "method": "bm25",
+        "K1": 100,
+        "B": 0.8
+      }
+    },
+    "model": {
+      "name": "implicit-als",
+      "implementation": "implicit.als.AlternatingLeastSquares",
+      "params": {
+        "factors": 128,
+        "regularization": 0.01,
+        "iterations": 15
+      },
+      "recommendation_mode": "fast_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.010191210331364503,
+      "recall@10": 0.101912103313645,
+      "ndcg@10": 0.05133663948093165
+    },
+    "notes": "Grid run logged from eval_als.py sweep."
+  },
+  {
+    "run_id": "als_bm25_movielens25m_2025-12-21_15-05-33_f128_r0.01_it30",
+    "date": "2025-12-21",
+    "time": "15:05:33",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "evaluation": {
+      "k": 10,
+      "subsample_test_users": 10000,
+      "random_seed": 42,
+      "n_users_eval": 9989,
+      "hit_users": 1009,
+      "skipped_empty_true": 11,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 4.0,
+      "use_ratings": false,
+      "weighting": {
+        "method": "bm25",
+        "K1": 100,
+        "B": 0.8
+      }
+    },
+    "model": {
+      "name": "implicit-als",
+      "implementation": "implicit.als.AlternatingLeastSquares",
+      "params": {
+        "factors": 128,
+        "regularization": 0.01,
+        "iterations": 30
+      },
+      "recommendation_mode": "fast_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.01010111122234458,
+      "recall@10": 0.10101111222344579,
+      "ndcg@10": 0.05047150571959005
+    },
+    "notes": "Grid run logged from eval_als.py sweep."
+  },
+  {
+    "run_id": "als_bm25_movielens25m_2025-12-21_15-08-00_f128_r0.05_it15",
+    "date": "2025-12-21",
+    "time": "15:08:00",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "evaluation": {
+      "k": 10,
+      "subsample_test_users": 10000,
+      "random_seed": 42,
+      "n_users_eval": 9989,
+      "hit_users": 1043,
+      "skipped_empty_true": 11,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 4.0,
+      "use_ratings": false,
+      "weighting": {
+        "method": "bm25",
+        "K1": 100,
+        "B": 0.8
+      }
+    },
+    "model": {
+      "name": "implicit-als",
+      "implementation": "implicit.als.AlternatingLeastSquares",
+      "params": {
+        "factors": 128,
+        "regularization": 0.05,
+        "iterations": 15
+      },
+      "recommendation_mode": "fast_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.010441485634197618,
+      "recall@10": 0.10441485634197617,
+      "ndcg@10": 0.051909717514110096
+    },
+    "notes": "Grid run logged from eval_als.py sweep."
+  },
+  {
+    "run_id": "als_bm25_movielens25m_2025-12-21_15-13-12_f128_r0.05_it30",
+    "date": "2025-12-21",
+    "time": "15:13:12",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "evaluation": {
+      "k": 10,
+      "subsample_test_users": 10000,
+      "random_seed": 42,
+      "n_users_eval": 9989,
+      "hit_users": 1004,
+      "skipped_empty_true": 11,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 4.0,
+      "use_ratings": false,
+      "weighting": {
+        "method": "bm25",
+        "K1": 100,
+        "B": 0.8
+      }
+    },
+    "model": {
+      "name": "implicit-als",
+      "implementation": "implicit.als.AlternatingLeastSquares",
+      "params": {
+        "factors": 128,
+        "regularization": 0.05,
+        "iterations": 30
+      },
+      "recommendation_mode": "fast_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.010051056161777957,
+      "recall@10": 0.10051056161777956,
+      "ndcg@10": 0.05040501203341062
+    },
+    "notes": "Grid run logged from eval_als.py sweep."
+  },
+  {
+    "run_id": "als_movielens25m_2025-12-21_15-32-51_thr3.5_bm251",
+    "date": "2025-12-21",
+    "time": "15:32:51",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "evaluation": {
+      "k": 10,
+      "subsample_test_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49969,
+      "hit_users": 4668,
+      "skipped_empty_true": 31,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 3.5,
+      "use_ratings": false,
+      "weighting": {
+        "method": "bm25",
+        "K1": 100,
+        "B": 0.8
+      }
+    },
+    "model": {
+      "name": "als",
+      "implementation": "implicit.als.AlternatingLeastSquares",
+      "params": {
+        "factors": 64,
+        "regularization": 0.01,
+        "iterations": 15
+      },
+      "recommendation_mode": "fast_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.00934179191098481,
+      "recall@10": 0.0934179191098481,
+      "ndcg@10": 0.046426853554661945
+    },
+    "notes": "Signal experiment run (threshold/BM25) with fixed best ALS params."
+  },
+  {
+    "run_id": "als_movielens25m_2025-12-21_16-07-47_thr3.5_bm251",
+    "date": "2025-12-21",
+    "time": "16:07:47",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "evaluation": {
+      "k": 10,
+      "subsample_test_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49969,
+      "hit_users": 4677,
+      "skipped_empty_true": 31,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 3.5,
+      "use_ratings": false,
+      "weighting": {
+        "method": "bm25",
+        "K1": 100,
+        "B": 0.8
+      }
+    },
+    "model": {
+      "name": "als",
+      "implementation": "implicit.als.AlternatingLeastSquares",
+      "params": {
+        "factors": 64,
+        "regularization": 0.01,
+        "iterations": 15
+      },
+      "recommendation_mode": "fast_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.009359803077908305,
+      "recall@10": 0.09359803077908303,
+      "ndcg@10": 0.046511404604300866
+    },
+    "notes": "Signal experiment run (threshold/BM25) with fixed best ALS params."
+  },
+  {
+    "run_id": "itemknn_cosine_movielens25m_2025-12-21_16-18-16_thr3.5_bm251",
+    "date": "2025-12-21",
+    "time": "16:18:16",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "evaluation": {
+      "k": 10,
+      "subsample_test_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49969,
+      "hit_users": 26,
+      "skipped_empty_true": 31,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 3.5,
+      "use_ratings": false,
+      "weighting": {
+        "method": "bm25",
+        "K1": 100,
+        "B": 0.8
+      }
+    },
+    "model": {
+      "name": "itemknn_cosine",
+      "implementation": "implicit.nearest_neighbours.CosineRecommender",
+      "params": {
+        "K": 50
+      },
+      "recommendation_mode": "standard_recommend_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 5.2032260001200744e-05,
+      "recall@10": 0.0005203226000120075,
+      "ndcg@10": 0.0002533682567532595
+    },
+    "notes": "Item-item cosine KNN baseline on the same signal experiment setup."
+  },
+  {
+    "run_id": "als_movielens25m_2025-12-21_16-19-29_thr4.0_bm250",
+    "date": "2025-12-21",
+    "time": "16:19:29",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "evaluation": {
+      "k": 10,
+      "subsample_test_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49954,
+      "hit_users": 4699,
+      "skipped_empty_true": 46,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 4.0,
+      "use_ratings": false,
+      "weighting": {
+        "method": "none"
+      }
+    },
+    "model": {
+      "name": "als",
+      "implementation": "implicit.als.AlternatingLeastSquares",
+      "params": {
+        "factors": 64,
+        "regularization": 0.01,
+        "iterations": 15
+      },
+      "recommendation_mode": "fast_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.009406654121792049,
+      "recall@10": 0.09406654121792049,
+      "ndcg@10": 0.047294638274154074
+    },
+    "notes": "Signal experiment run (threshold/BM25) with fixed best ALS params."
+  },
+  {
+    "run_id": "itemknn_cosine_movielens25m_2025-12-21_16-28-23_thr4.0_bm250",
+    "date": "2025-12-21",
+    "time": "16:28:23",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "evaluation": {
+      "k": 10,
+      "subsample_test_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49954,
+      "hit_users": 0,
+      "skipped_empty_true": 46,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 4.0,
+      "use_ratings": false,
+      "weighting": {
+        "method": "none"
+      }
+    },
+    "model": {
+      "name": "itemknn_cosine",
+      "implementation": "implicit.nearest_neighbours.CosineRecommender",
+      "params": {
+        "K": 50
+      },
+      "recommendation_mode": "standard_recommend_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.0,
+      "recall@10": 0.0,
+      "ndcg@10": 0.0
+    },
+    "notes": "Item-item cosine KNN baseline on the same signal experiment setup."
+  },
+  {
+    "run_id": "als_movielens25m_2025-12-21_16-29-49_thr3.5_bm250",
+    "date": "2025-12-21",
+    "time": "16:29:49",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "evaluation": {
+      "k": 10,
+      "subsample_test_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49969,
+      "hit_users": 4628,
+      "skipped_empty_true": 31,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 3.5,
+      "use_ratings": false,
+      "weighting": {
+        "method": "none"
+      }
+    },
+    "model": {
+      "name": "als",
+      "implementation": "implicit.als.AlternatingLeastSquares",
+      "params": {
+        "factors": 64,
+        "regularization": 0.01,
+        "iterations": 15
+      },
+      "recommendation_mode": "fast_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.009261742280213732,
+      "recall@10": 0.09261742280213732,
+      "ndcg@10": 0.04680693416172283
+    },
+    "notes": "Signal experiment run (threshold/BM25) with fixed best ALS params."
+  },
+  {
+    "run_id": "itemknn_cosine_movielens25m_2025-12-21_16-40-22_thr3.5_bm250",
+    "date": "2025-12-21",
+    "time": "16:40:22",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "evaluation": {
+      "k": 10,
+      "subsample_test_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49969,
+      "hit_users": 0,
+      "skipped_empty_true": 31,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 3.5,
+      "use_ratings": false,
+      "weighting": {
+        "method": "none"
+      }
+    },
+    "model": {
+      "name": "itemknn_cosine",
+      "implementation": "implicit.nearest_neighbours.CosineRecommender",
+      "params": {
+        "K": 50
+      },
+      "recommendation_mode": "standard_recommend_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.0,
+      "recall@10": 0.0,
+      "ndcg@10": 0.0
+    },
+    "notes": "Item-item cosine KNN baseline on the same signal experiment setup."
+  },
+  {
+    "run_id": "als_movielens25m_2025-12-21_16-51-37_thr3.5_bm251",
+    "date": "2025-12-21",
+    "time": "16:51:37",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "evaluation": {
+      "k": 10,
+      "subsample_test_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49969,
+      "hit_users": 4667,
+      "skipped_empty_true": 31,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 3.5,
+      "use_ratings": false,
+      "weighting": {
+        "method": "bm25",
+        "K1": 100,
+        "B": 0.8
+      }
+    },
+    "model": {
+      "name": "als",
+      "implementation": "implicit.als.AlternatingLeastSquares",
+      "params": {
+        "factors": 64,
+        "regularization": 0.01,
+        "iterations": 15
+      },
+      "recommendation_mode": "fast_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.009339790670215533,
+      "recall@10": 0.09339790670215534,
+      "ndcg@10": 0.04642181135848984
+    },
+    "notes": "Signal experiment run (threshold/BM25) with fixed best ALS params."
+  },
+  {
+    "run_id": "itemknn_cosine_movielens25m_2025-12-21_17-03-28_thr3.5_bm251",
+    "date": "2025-12-21",
+    "time": "17:03:28",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "evaluation": {
+      "k": 10,
+      "subsample_test_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49969,
+      "hit_users": 26,
+      "skipped_empty_true": 31,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 3.5,
+      "use_ratings": false,
+      "weighting": {
+        "method": "bm25",
+        "K1": 100,
+        "B": 0.8
+      }
+    },
+    "model": {
+      "name": "itemknn_cosine",
+      "implementation": "implicit.nearest_neighbours.CosineRecommender",
+      "params": {
+        "K": 50
+      },
+      "recommendation_mode": "standard_recommend_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 5.2032260001200744e-05,
+      "recall@10": 0.0005203226000120075,
+      "ndcg@10": 0.0002533682567532595
+    },
+    "notes": "Item-item cosine KNN baseline on the same signal experiment setup."
+  },
+  {
+    "run_id": "als_movielens25m_2025-12-21_17-05-00_thr4.0_bm250",
+    "date": "2025-12-21",
+    "time": "17:05:00",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "evaluation": {
+      "k": 10,
+      "subsample_test_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49954,
+      "hit_users": 4728,
+      "skipped_empty_true": 46,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 4.0,
+      "use_ratings": false,
+      "weighting": {
+        "method": "none"
+      }
+    },
+    "model": {
+      "name": "als",
+      "implementation": "implicit.als.AlternatingLeastSquares",
+      "params": {
+        "factors": 64,
+        "regularization": 0.01,
+        "iterations": 15
+      },
+      "recommendation_mode": "fast_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.009464707530928455,
+      "recall@10": 0.09464707530928454,
+      "ndcg@10": 0.04735659680737098
+    },
+    "notes": "Signal experiment run (threshold/BM25) with fixed best ALS params."
+  },
+  {
+    "run_id": "itemknn_cosine_movielens25m_2025-12-21_17-14-36_thr4.0_bm250",
+    "date": "2025-12-21",
+    "time": "17:14:36",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "evaluation": {
+      "k": 10,
+      "subsample_test_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49954,
+      "hit_users": 0,
+      "skipped_empty_true": 46,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 4.0,
+      "use_ratings": false,
+      "weighting": {
+        "method": "none"
+      }
+    },
+    "model": {
+      "name": "itemknn_cosine",
+      "implementation": "implicit.nearest_neighbours.CosineRecommender",
+      "params": {
+        "K": 50
+      },
+      "recommendation_mode": "standard_recommend_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.0,
+      "recall@10": 0.0,
+      "ndcg@10": 0.0
+    },
+    "notes": "Item-item cosine KNN baseline on the same signal experiment setup."
+  },
+  {
+    "run_id": "als_movielens25m_2025-12-21_17-16-03_thr3.5_bm250",
+    "date": "2025-12-21",
+    "time": "17:16:03",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "evaluation": {
+      "k": 10,
+      "subsample_test_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49969,
+      "hit_users": 4700,
+      "skipped_empty_true": 31,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 3.5,
+      "use_ratings": false,
+      "weighting": {
+        "method": "none"
+      }
+    },
+    "model": {
+      "name": "als",
+      "implementation": "implicit.als.AlternatingLeastSquares",
+      "params": {
+        "factors": 64,
+        "regularization": 0.01,
+        "iterations": 15
+      },
+      "recommendation_mode": "fast_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.009405831615601674,
+      "recall@10": 0.09405831615601673,
+      "ndcg@10": 0.04728010815355831
+    },
+    "notes": "Signal experiment run (threshold/BM25) with fixed best ALS params."
+  },
+  {
+    "run_id": "itemknn_cosine_movielens25m_2025-12-21_17-26-50_thr3.5_bm250",
+    "date": "2025-12-21",
+    "time": "17:26:50",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "evaluation": {
+      "k": 10,
+      "subsample_test_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49969,
+      "hit_users": 0,
+      "skipped_empty_true": 31,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 3.5,
+      "use_ratings": false,
+      "weighting": {
+        "method": "none"
+      }
+    },
+    "model": {
+      "name": "itemknn_cosine",
+      "implementation": "implicit.nearest_neighbours.CosineRecommender",
+      "params": {
+        "K": 50
+      },
+      "recommendation_mode": "standard_recommend_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.0,
+      "recall@10": 0.0,
+      "ndcg@10": 0.0
+    },
+    "notes": "Item-item cosine KNN baseline on the same signal experiment setup."
+  },
+  {
+    "run_id": "als_movielens25m_2025-12-21_17-34-23_thr3.5_bm251",
+    "date": "2025-12-21",
+    "time": "17:34:23",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "evaluation": {
+      "k": 10,
+      "subsample_test_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49969,
+      "hit_users": 4723,
+      "skipped_empty_true": 31,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 3.5,
+      "use_ratings": false,
+      "weighting": {
+        "method": "bm25",
+        "K1": 100,
+        "B": 0.8
+      }
+    },
+    "model": {
+      "name": "als",
+      "implementation": "implicit.als.AlternatingLeastSquares",
+      "params": {
+        "factors": 64,
+        "regularization": 0.01,
+        "iterations": 15
+      },
+      "recommendation_mode": "fast_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.009451860153295044,
+      "recall@10": 0.09451860153295043,
+      "ndcg@10": 0.04678483412083884
+    },
+    "notes": "Signal experiment run (threshold/BM25) with fixed best ALS params."
+  },
+  {
+    "run_id": "itemknn_cosine_movielens25m_2025-12-21_17-44-49_thr3.5_bm251",
+    "date": "2025-12-21",
+    "time": "17:44:49",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "evaluation": {
+      "k": 10,
+      "subsample_test_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49969,
+      "hit_users": 26,
+      "skipped_empty_true": 31,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 3.5,
+      "use_ratings": false,
+      "weighting": {
+        "method": "bm25",
+        "K1": 100,
+        "B": 0.8
+      }
+    },
+    "model": {
+      "name": "itemknn_cosine",
+      "implementation": "implicit.nearest_neighbours.CosineRecommender",
+      "params": {
+        "K": 50
+      },
+      "recommendation_mode": "standard_recommend_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 5.2032260001200744e-05,
+      "recall@10": 0.0005203226000120075,
+      "ndcg@10": 0.0002533682567532595
+    },
+    "notes": "Item-item cosine KNN baseline on the same signal experiment setup."
+  },
+  {
+    "run_id": "als_movielens25m_2025-12-21_17-46-06_thr4.0_bm250",
+    "date": "2025-12-21",
+    "time": "17:46:06",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "evaluation": {
+      "k": 10,
+      "subsample_test_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49954,
+      "hit_users": 4641,
+      "skipped_empty_true": 46,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 4.0,
+      "use_ratings": false,
+      "weighting": {
+        "method": "none"
+      }
+    },
+    "model": {
+      "name": "als",
+      "implementation": "implicit.als.AlternatingLeastSquares",
+      "params": {
+        "factors": 64,
+        "regularization": 0.01,
+        "iterations": 15
+      },
+      "recommendation_mode": "fast_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.009290547303519239,
+      "recall@10": 0.09290547303519238,
+      "ndcg@10": 0.04705565677590099
+    },
+    "notes": "Signal experiment run (threshold/BM25) with fixed best ALS params."
+  },
+  {
+    "run_id": "itemknn_cosine_movielens25m_2025-12-21_17-55-06_thr4.0_bm250",
+    "date": "2025-12-21",
+    "time": "17:55:06",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "evaluation": {
+      "k": 10,
+      "subsample_test_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49954,
+      "hit_users": 0,
+      "skipped_empty_true": 46,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 4.0,
+      "use_ratings": false,
+      "weighting": {
+        "method": "none"
+      }
+    },
+    "model": {
+      "name": "itemknn_cosine",
+      "implementation": "implicit.nearest_neighbours.CosineRecommender",
+      "params": {
+        "K": 50
+      },
+      "recommendation_mode": "standard_recommend_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.0,
+      "recall@10": 0.0,
+      "ndcg@10": 0.0
+    },
+    "notes": "Item-item cosine KNN baseline on the same signal experiment setup."
+  },
+  {
+    "run_id": "als_movielens25m_2025-12-21_17-56-37_thr3.5_bm250",
+    "date": "2025-12-21",
+    "time": "17:56:37",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "evaluation": {
+      "k": 10,
+      "subsample_test_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49969,
+      "hit_users": 4611,
+      "skipped_empty_true": 31,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 3.5,
+      "use_ratings": false,
+      "weighting": {
+        "method": "none"
+      }
+    },
+    "model": {
+      "name": "als",
+      "implementation": "implicit.als.AlternatingLeastSquares",
+      "params": {
+        "factors": 64,
+        "regularization": 0.01,
+        "iterations": 15
+      },
+      "recommendation_mode": "fast_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.009227721187136025,
+      "recall@10": 0.09227721187136025,
+      "ndcg@10": 0.046458509696902274
+    },
+    "notes": "Signal experiment run (threshold/BM25) with fixed best ALS params."
+  },
+  {
+    "run_id": "itemknn_cosine_movielens25m_2025-12-21_18-07-20_thr3.5_bm250",
+    "date": "2025-12-21",
+    "time": "18:07:20",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "evaluation": {
+      "k": 10,
+      "subsample_test_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49969,
+      "hit_users": 0,
+      "skipped_empty_true": 31,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 3.5,
+      "use_ratings": false,
+      "weighting": {
+        "method": "none"
+      }
+    },
+    "model": {
+      "name": "itemknn_cosine",
+      "implementation": "implicit.nearest_neighbours.CosineRecommender",
+      "params": {
+        "K": 50
+      },
+      "recommendation_mode": "standard_recommend_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.0,
+      "recall@10": 0.0,
+      "ndcg@10": 0.0
+    },
+    "notes": "Item-item cosine KNN baseline on the same signal experiment setup."
+  },
+  {
+    "run_id": "als_movielens25m_2025-12-21_18-22-20_thr3.5_bm251",
+    "date": "2025-12-21",
+    "time": "18:22:20",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "evaluation": {
+      "k": 10,
+      "subsample_test_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49969,
+      "hit_users": 4732,
+      "skipped_empty_true": 31,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 3.5,
+      "use_ratings": false,
+      "weighting": {
+        "method": "bm25",
+        "K1": 100,
+        "B": 0.8
+      }
+    },
+    "model": {
+      "name": "als",
+      "implementation": "implicit.als.AlternatingLeastSquares",
+      "params": {
+        "factors": 64,
+        "regularization": 0.01,
+        "iterations": 15
+      },
+      "recommendation_mode": "fast_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.009469871320218537,
+      "recall@10": 0.09469871320218536,
+      "ndcg@10": 0.04684268393595303
+    },
+    "notes": "Signal experiment run (threshold/BM25) with fixed best ALS params."
+  },
+  {
+    "run_id": "itemknn_cosine_movielens25m_2025-12-21_18-33-12_thr3.5_bm251",
+    "date": "2025-12-21",
+    "time": "18:33:12",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "evaluation": {
+      "k": 10,
+      "subsample_test_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49969,
+      "hit_users": 0,
+      "skipped_empty_true": 31,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 3.5,
+      "use_ratings": false,
+      "weighting": {
+        "method": "bm25",
+        "K1": 100,
+        "B": 0.8
+      }
+    },
+    "model": {
+      "name": "itemknn_cosine",
+      "implementation": "implicit.nearest_neighbours.CosineRecommender",
+      "params": {
+        "K": 200,
+        "fit_weight": "bm25"
+      },
+      "recommendation_mode": "standard_recommend_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.0,
+      "recall@10": 0.0,
+      "ndcg@10": 0.0
+    },
+    "notes": "Item-item cosine KNN baseline on the same signal experiment setup."
+  },
+  {
+    "run_id": "als_movielens25m_2025-12-21_18-34-26_thr4.0_bm250",
+    "tag": "baseline_v2",
+    "date": "2025-12-21",
+    "time": "18:34:26",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "evaluation": {
+      "k": 10,
+      "subsample_test_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49954,
+      "hit_users": 4708,
+      "skipped_empty_true": 46,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 4.0,
+      "use_ratings": false,
+      "weighting": {
+        "method": "none"
+      }
+    },
+    "model": {
+      "name": "als",
+      "implementation": "implicit.als.AlternatingLeastSquares",
+      "params": {
+        "factors": 64,
+        "regularization": 0.01,
+        "iterations": 15
+      },
+      "recommendation_mode": "fast_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.00942467069704128,
+      "recall@10": 0.09424670697041278,
+      "ndcg@10": 0.04762577367930956
+    },
+    "notes": "BASELINE_V2 – fixed reference configuration. Do not modify."
+  },
+  {
+    "run_id": "itemknn_cosine_movielens25m_2025-12-21_18-43-53_thr4.0_bm250",
+    "date": "2025-12-21",
+    "time": "18:43:53",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "evaluation": {
+      "k": 10,
+      "subsample_test_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49954,
+      "hit_users": 6,
+      "skipped_empty_true": 46,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 4.0,
+      "use_ratings": false,
+      "weighting": {
+        "method": "none"
+      }
+    },
+    "model": {
+      "name": "itemknn_cosine",
+      "implementation": "implicit.nearest_neighbours.CosineRecommender",
+      "params": {
+        "K": 200,
+        "fit_weight": "tfidf"
+      },
+      "recommendation_mode": "standard_recommend_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 1.201105016615286e-05,
+      "recall@10": 0.0001201105016615286,
+      "ndcg@10": 5.623715290229174e-05
+    },
+    "notes": "Item-item cosine KNN baseline on the same signal experiment setup."
+  },
+  {
+    "run_id": "als_movielens25m_2025-12-21_18-45-15_thr3.5_bm250",
+    "date": "2025-12-21",
+    "time": "18:45:15",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "evaluation": {
+      "k": 10,
+      "subsample_test_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49969,
+      "hit_users": 4659,
+      "skipped_empty_true": 31,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 3.5,
+      "use_ratings": false,
+      "weighting": {
+        "method": "none"
+      }
+    },
+    "model": {
+      "name": "als",
+      "implementation": "implicit.als.AlternatingLeastSquares",
+      "params": {
+        "factors": 64,
+        "regularization": 0.01,
+        "iterations": 15
+      },
+      "recommendation_mode": "fast_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.00932378074406132,
+      "recall@10": 0.09323780744061318,
+      "ndcg@10": 0.04693785068662829
+    },
+    "notes": "Signal experiment run (threshold/BM25) with fixed best ALS params."
+  },
+  {
+    "run_id": "itemknn_cosine_movielens25m_2025-12-21_18-56-20_thr3.5_bm250",
+    "date": "2025-12-21",
+    "time": "18:56:20",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "evaluation": {
+      "k": 10,
+      "subsample_test_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49969,
+      "hit_users": 16,
+      "skipped_empty_true": 31,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 3.5,
+      "use_ratings": false,
+      "weighting": {
+        "method": "none"
+      }
+    },
+    "model": {
+      "name": "itemknn_cosine",
+      "implementation": "implicit.nearest_neighbours.CosineRecommender",
+      "params": {
+        "K": 200,
+        "fit_weight": "tfidf"
+      },
+      "recommendation_mode": "standard_recommend_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 3.201985230843123e-05,
+      "recall@10": 0.00032019852308431225,
+      "ndcg@10": 0.0001238696975275204
+    },
+    "notes": "Item-item cosine KNN baseline on the same signal experiment setup."
+  },
+  {
+    "run_id": "als_movielens25m_2025-12-21_19-52-04_thr3.5_bm251",
+    "date": "2025-12-21",
+    "time": "19:52:04",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "evaluation": {
+      "k": 10,
+      "subsample_test_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49969,
+      "hit_users": 4663,
+      "skipped_empty_true": 31,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 3.5,
+      "use_ratings": false,
+      "weighting": {
+        "method": "bm25",
+        "K1": 100,
+        "B": 0.8
+      }
+    },
+    "model": {
+      "name": "als",
+      "implementation": "implicit.als.AlternatingLeastSquares",
+      "params": {
+        "factors": 64,
+        "regularization": 0.01,
+        "iterations": 15
+      },
+      "recommendation_mode": "fast_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.009331785707138426,
+      "recall@10": 0.09331785707138426,
+      "ndcg@10": 0.046519079083826416,
+      "map@10": 0.03246845583944585,
+      "mrr@10": 0.03246845583944585
+    },
+    "notes": "Signal experiment run (threshold/BM25) with fixed best ALS params."
+  },
+  {
+    "run_id": "itemknn_cosine_movielens25m_2025-12-21_20-03-04_thr3.5_bm251",
+    "date": "2025-12-21",
+    "time": "20:03:04",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "evaluation": {
+      "k": 10,
+      "subsample_test_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49969,
+      "hit_users": 0,
+      "skipped_empty_true": 31,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 3.5,
+      "use_ratings": false,
+      "weighting": {
+        "method": "bm25",
+        "K1": 100,
+        "B": 0.8
+      }
+    },
+    "model": {
+      "name": "itemknn_cosine",
+      "implementation": "implicit.nearest_neighbours.CosineRecommender",
+      "params": {
+        "K": 200,
+        "fit_weight": "bm25"
+      },
+      "recommendation_mode": "standard_recommend_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.0,
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "map@10": 0.0,
+      "mrr@10": 0.0
+    },
+    "notes": "Item-item cosine KNN baseline on the same signal experiment setup."
+  },
+  {
+    "run_id": "als_movielens25m_2025-12-21_20-04-21_thr4.0_bm250",
+    "date": "2025-12-21",
+    "time": "20:04:21",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "evaluation": {
+      "k": 10,
+      "subsample_test_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49954,
+      "hit_users": 4739,
+      "skipped_empty_true": 46,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 4.0,
+      "use_ratings": false,
+      "weighting": {
+        "method": "none"
+      }
+    },
+    "model": {
+      "name": "als",
+      "implementation": "implicit.als.AlternatingLeastSquares",
+      "params": {
+        "factors": 64,
+        "regularization": 0.01,
+        "iterations": 15
+      },
+      "recommendation_mode": "fast_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.0094867277895664,
+      "recall@10": 0.09486727789566402,
+      "ndcg@10": 0.047637278301901426,
+      "map@10": 0.03348535414486089,
+      "mrr@10": 0.03348535414486089
+    },
+    "notes": "Signal experiment run (threshold/BM25) with fixed best ALS params."
+  },
+  {
+    "run_id": "itemknn_cosine_movielens25m_2025-12-21_20-14-08_thr4.0_bm250",
+    "date": "2025-12-21",
+    "time": "20:14:08",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "evaluation": {
+      "k": 10,
+      "subsample_test_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49954,
+      "hit_users": 6,
+      "skipped_empty_true": 46,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 4.0,
+      "use_ratings": false,
+      "weighting": {
+        "method": "none"
+      }
+    },
+    "model": {
+      "name": "itemknn_cosine",
+      "implementation": "implicit.nearest_neighbours.CosineRecommender",
+      "params": {
+        "K": 200,
+        "fit_weight": "tfidf"
+      },
+      "recommendation_mode": "standard_recommend_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 1.201105016615286e-05,
+      "recall@10": 0.0001201105016615286,
+      "ndcg@10": 5.623715290229174e-05,
+      "map@10": 3.603315049845858e-05,
+      "mrr@10": 3.603315049845858e-05
+    },
+    "notes": "Item-item cosine KNN baseline on the same signal experiment setup."
+  },
+  {
+    "run_id": "als_movielens25m_2025-12-21_20-15-39_thr3.5_bm250",
+    "date": "2025-12-21",
+    "time": "20:15:39",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "evaluation": {
+      "k": 10,
+      "subsample_test_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49969,
+      "hit_users": 4684,
+      "skipped_empty_true": 31,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 3.5,
+      "use_ratings": false,
+      "weighting": {
+        "method": "none"
+      }
+    },
+    "model": {
+      "name": "als",
+      "implementation": "implicit.als.AlternatingLeastSquares",
+      "params": {
+        "factors": 64,
+        "regularization": 0.01,
+        "iterations": 15
+      },
+      "recommendation_mode": "fast_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.009373811763293242,
+      "recall@10": 0.09373811763293242,
+      "ndcg@10": 0.04713492792740875,
+      "map@10": 0.03314582024982473,
+      "mrr@10": 0.03314582024982473
+    },
+    "notes": "Signal experiment run (threshold/BM25) with fixed best ALS params."
+  },
+  {
+    "run_id": "itemknn_cosine_movielens25m_2025-12-21_20-27-29_thr3.5_bm250",
+    "date": "2025-12-21",
+    "time": "20:27:29",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "evaluation": {
+      "k": 10,
+      "subsample_test_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49969,
+      "hit_users": 16,
+      "skipped_empty_true": 31,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 3.5,
+      "use_ratings": false,
+      "weighting": {
+        "method": "none"
+      }
+    },
+    "model": {
+      "name": "itemknn_cosine",
+      "implementation": "implicit.nearest_neighbours.CosineRecommender",
+      "params": {
+        "K": 200,
+        "fit_weight": "tfidf"
+      },
+      "recommendation_mode": "standard_recommend_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 3.201985230843123e-05,
+      "recall@10": 0.00032019852308431225,
+      "ndcg@10": 0.0001238696975275204,
+      "map@10": 6.403970461686246e-05,
+      "mrr@10": 6.403970461686246e-05
+    },
+    "notes": "Item-item cosine KNN baseline on the same signal experiment setup."
+  },
+  {
+    "run_id": "als_movielens25m_2025-12-21_20-35-39_thr3.5_bm251",
+    "date": "2025-12-21",
+    "time": "20:35:39",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "split": "val",
+    "evaluation": {
+      "k": 10,
+      "subsample_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49969,
+      "hit_users": 5372,
+      "skipped_empty_true": 31,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 3.5,
+      "use_ratings": false,
+      "weighting": {
+        "method": "bm25",
+        "K1": 100,
+        "B": 0.8
+      }
+    },
+    "model": {
+      "name": "als",
+      "implementation": "implicit.als.AlternatingLeastSquares",
+      "params": {
+        "factors": 64,
+        "regularization": 0.01,
+        "iterations": 15
+      },
+      "recommendation_mode": "fast_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.010750665412555786,
+      "recall@10": 0.10750665412555785,
+      "ndcg@10": 0.05354758882283634,
+      "map@10": 0.03738419407334135,
+      "mrr@10": 0.03738419407334135
+    },
+    "notes": "Dev evaluation on val split (do not tune on test)."
+  },
+  {
+    "run_id": "itemknn_cosine_movielens25m_2025-12-21_20-46-17_thr3.5_bm251",
+    "date": "2025-12-21",
+    "time": "20:46:17",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "split": "val",
+    "evaluation": {
+      "k": 10,
+      "subsample_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49969,
+      "hit_users": 0,
+      "skipped_empty_true": 31,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 3.5,
+      "use_ratings": false,
+      "weighting": {
+        "method": "bm25",
+        "K1": 100,
+        "B": 0.8
+      }
+    },
+    "model": {
+      "name": "itemknn_cosine",
+      "implementation": "implicit.nearest_neighbours.CosineRecommender",
+      "params": {
+        "K": 200,
+        "fit_weight": "bm25"
+      },
+      "recommendation_mode": "standard_recommend_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.0,
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "map@10": 0.0,
+      "mrr@10": 0.0
+    },
+    "notes": "Dev baseline on val split (for reference only)."
+  },
+  {
+    "run_id": "als_movielens25m_2025-12-21_20-47-26_thr4.0_bm250",
+    "date": "2025-12-21",
+    "time": "20:47:26",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "split": "val",
+    "evaluation": {
+      "k": 10,
+      "subsample_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49949,
+      "hit_users": 5501,
+      "skipped_empty_true": 51,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 4.0,
+      "use_ratings": false,
+      "weighting": {
+        "method": "none"
+      }
+    },
+    "model": {
+      "name": "als",
+      "implementation": "implicit.als.AlternatingLeastSquares",
+      "params": {
+        "factors": 64,
+        "regularization": 0.01,
+        "iterations": 15
+      },
+      "recommendation_mode": "fast_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.011013233498168129,
+      "recall@10": 0.11013233498168132,
+      "ndcg@10": 0.057820561021745036,
+      "map@10": 0.04210602751314277,
+      "mrr@10": 0.04210602751314277
+    },
+    "notes": "Dev evaluation on val split (do not tune on test)."
+  },
+  {
+    "run_id": "itemknn_cosine_movielens25m_2025-12-21_20-56-48_thr4.0_bm250",
+    "date": "2025-12-21",
+    "time": "20:56:48",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "split": "val",
+    "evaluation": {
+      "k": 10,
+      "subsample_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49949,
+      "hit_users": 5,
+      "skipped_empty_true": 51,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 4.0,
+      "use_ratings": false,
+      "weighting": {
+        "method": "none"
+      }
+    },
+    "model": {
+      "name": "itemknn_cosine",
+      "implementation": "implicit.nearest_neighbours.CosineRecommender",
+      "params": {
+        "K": 200,
+        "fit_weight": "tfidf"
+      },
+      "recommendation_mode": "standard_recommend_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 1.0010210414622916e-05,
+      "recall@10": 0.00010010210414622915,
+      "ndcg@10": 4.849782635981781e-05,
+      "map@10": 3.203267332679333e-05,
+      "mrr@10": 3.203267332679333e-05
+    },
+    "notes": "Dev baseline on val split (for reference only)."
+  },
+  {
+    "run_id": "als_movielens25m_2025-12-21_20-57-08_thr4.0_bm250",
+    "date": "2025-12-21",
+    "time": "20:57:08",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "split": "test",
+    "evaluation": {
+      "k": 10,
+      "subsample_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49954,
+      "hit_users": 4651,
+      "skipped_empty_true": 46,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 4.0,
+      "use_ratings": false,
+      "weighting": {
+        "method": "none"
+      }
+    },
+    "model": {
+      "name": "als",
+      "implementation": "implicit.als.AlternatingLeastSquares",
+      "params": {
+        "factors": 64,
+        "regularization": 0.01,
+        "iterations": 15
+      },
+      "recommendation_mode": "fast_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.009310565720462826,
+      "recall@10": 0.09310565720462825,
+      "ndcg@10": 0.047056765171785184,
+      "map@10": 0.033250654093829816,
+      "mrr@10": 0.033250654093829816
+    },
+    "notes": "BASELINE_V2 final test report (do not tune on this).",
+    "tag": "baseline_v2_report"
+  },
+  {
+    "run_id": "als_movielens25m_2025-12-21_20-58-35_thr3.5_bm250",
+    "date": "2025-12-21",
+    "time": "20:58:35",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "split": "val",
+    "evaluation": {
+      "k": 10,
+      "subsample_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49969,
+      "hit_users": 5343,
+      "skipped_empty_true": 31,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 3.5,
+      "use_ratings": false,
+      "weighting": {
+        "method": "none"
+      }
+    },
+    "model": {
+      "name": "als",
+      "implementation": "implicit.als.AlternatingLeastSquares",
+      "params": {
+        "factors": 64,
+        "regularization": 0.01,
+        "iterations": 15
+      },
+      "recommendation_mode": "fast_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.010692629430246752,
+      "recall@10": 0.10692629430246753,
+      "ndcg@10": 0.05527459747228356,
+      "map@10": 0.03973587433732724,
+      "mrr@10": 0.03973587433732724
+    },
+    "notes": "Dev evaluation on val split (do not tune on test)."
+  },
+  {
+    "run_id": "itemknn_cosine_movielens25m_2025-12-21_21-10-27_thr3.5_bm250",
+    "date": "2025-12-21",
+    "time": "21:10:27",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "split": "val",
+    "evaluation": {
+      "k": 10,
+      "subsample_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49969,
+      "hit_users": 15,
+      "skipped_empty_true": 31,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 3.5,
+      "use_ratings": false,
+      "weighting": {
+        "method": "none"
+      }
+    },
+    "model": {
+      "name": "itemknn_cosine",
+      "implementation": "implicit.nearest_neighbours.CosineRecommender",
+      "params": {
+        "K": 200,
+        "fit_weight": "tfidf"
+      },
+      "recommendation_mode": "standard_recommend_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 3.0018611539154277e-05,
+      "recall@10": 0.00030018611539154276,
+      "ndcg@10": 0.00011612784143205036,
+      "map@10": 6.003722307830855e-05,
+      "mrr@10": 6.003722307830855e-05
+    },
+    "notes": "Dev baseline on val split (for reference only)."
+  },
+  {
+    "run_id": "als_movielens25m_2025-12-21_21-39-13_thr3.5_bm251",
+    "date": "2025-12-21",
+    "time": "21:39:13",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "split": "val",
+    "evaluation": {
+      "k": 10,
+      "subsample_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49969,
+      "hit_users": 5396,
+      "skipped_empty_true": 31,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 3.5,
+      "use_ratings": false,
+      "weighting": {
+        "method": "bm25",
+        "K1": 100,
+        "B": 0.8
+      }
+    },
+    "model": {
+      "name": "als",
+      "implementation": "implicit.als.AlternatingLeastSquares",
+      "params": {
+        "factors": 64,
+        "regularization": 0.01,
+        "iterations": 15
+      },
+      "recommendation_mode": "fast_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.010798695191018432,
+      "recall@10": 0.10798695191018431,
+      "ndcg@10": 0.054280378446327264,
+      "map@10": 0.03818996349165054,
+      "mrr@10": 0.03818996349165054
+    },
+    "notes": "Dev evaluation on val split (do not tune on test)."
+  },
+  {
+    "run_id": "itemknn_cosine_movielens25m_2025-12-21_21-50-58_thr3.5_bm251",
+    "date": "2025-12-21",
+    "time": "21:50:58",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "split": "val",
+    "evaluation": {
+      "k": 10,
+      "subsample_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49969,
+      "hit_users": 0,
+      "skipped_empty_true": 31,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 3.5,
+      "use_ratings": false,
+      "weighting": {
+        "method": "bm25",
+        "K1": 100,
+        "B": 0.8
+      }
+    },
+    "model": {
+      "name": "itemknn_cosine",
+      "implementation": "implicit.nearest_neighbours.CosineRecommender",
+      "params": {
+        "K": 200,
+        "fit_weight": "bm25"
+      },
+      "recommendation_mode": "standard_recommend_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.0,
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "map@10": 0.0,
+      "mrr@10": 0.0
+    },
+    "notes": "Dev baseline on val split (for reference only)."
+  },
+  {
+    "run_id": "als_movielens25m_2025-12-21_21-52-21_thr4.0_bm250",
+    "date": "2025-12-21",
+    "time": "21:52:21",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "split": "val",
+    "evaluation": {
+      "k": 10,
+      "subsample_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49949,
+      "hit_users": 5578,
+      "skipped_empty_true": 51,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 4.0,
+      "use_ratings": false,
+      "weighting": {
+        "method": "none"
+      }
+    },
+    "model": {
+      "name": "als",
+      "implementation": "implicit.als.AlternatingLeastSquares",
+      "params": {
+        "factors": 64,
+        "regularization": 0.01,
+        "iterations": 15
+      },
+      "recommendation_mode": "fast_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.011167390738553325,
+      "recall@10": 0.11167390738553325,
+      "ndcg@10": 0.05800415884117809,
+      "map@10": 0.04190462366852284,
+      "mrr@10": 0.04190462366852284
+    },
+    "notes": "Dev evaluation on val split (do not tune on test)."
+  },
+  {
+    "run_id": "itemknn_cosine_movielens25m_2025-12-21_22-02-28_thr4.0_bm250",
+    "date": "2025-12-21",
+    "time": "22:02:28",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "split": "val",
+    "evaluation": {
+      "k": 10,
+      "subsample_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49949,
+      "hit_users": 5,
+      "skipped_empty_true": 51,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 4.0,
+      "use_ratings": false,
+      "weighting": {
+        "method": "none"
+      }
+    },
+    "model": {
+      "name": "itemknn_cosine",
+      "implementation": "implicit.nearest_neighbours.CosineRecommender",
+      "params": {
+        "K": 200,
+        "fit_weight": "tfidf"
+      },
+      "recommendation_mode": "standard_recommend_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 1.0010210414622916e-05,
+      "recall@10": 0.00010010210414622915,
+      "ndcg@10": 4.849782635981781e-05,
+      "map@10": 3.203267332679333e-05,
+      "mrr@10": 3.203267332679333e-05
+    },
+    "notes": "Dev baseline on val split (for reference only)."
+  },
+  {
+    "run_id": "als_movielens25m_2025-12-21_22-02-49_thr4.0_bm250",
+    "date": "2025-12-21",
+    "time": "22:02:49",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "split": "test",
+    "evaluation": {
+      "k": 10,
+      "subsample_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49954,
+      "hit_users": 4719,
+      "skipped_empty_true": 46,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 4.0,
+      "use_ratings": false,
+      "weighting": {
+        "method": "none"
+      }
+    },
+    "model": {
+      "name": "als",
+      "implementation": "implicit.als.AlternatingLeastSquares",
+      "params": {
+        "factors": 64,
+        "regularization": 0.01,
+        "iterations": 15
+      },
+      "recommendation_mode": "fast_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.009446690955679226,
+      "recall@10": 0.09446690955679225,
+      "ndcg@10": 0.047594915395423945,
+      "map@10": 0.03354683133879995,
+      "mrr@10": 0.03354683133879995
+    },
+    "notes": "BASELINE_V2 final test report (do not tune on this).",
+    "tag": "baseline_v2_report"
+  },
+  {
+    "run_id": "als_movielens25m_2025-12-21_22-04-14_thr3.5_bm250",
+    "date": "2025-12-21",
+    "time": "22:04:14",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "split": "val",
+    "evaluation": {
+      "k": 10,
+      "subsample_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49969,
+      "hit_users": 5435,
+      "skipped_empty_true": 31,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 3.5,
+      "use_ratings": false,
+      "weighting": {
+        "method": "none"
+      }
+    },
+    "model": {
+      "name": "als",
+      "implementation": "implicit.als.AlternatingLeastSquares",
+      "params": {
+        "factors": 64,
+        "regularization": 0.01,
+        "iterations": 15
+      },
+      "recommendation_mode": "fast_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.010876743581020233,
+      "recall@10": 0.10876743581020233,
+      "ndcg@10": 0.055943295653620446,
+      "map@10": 0.04005021208387295,
+      "mrr@10": 0.04005021208387295
+    },
+    "notes": "Dev evaluation on val split (do not tune on test)."
+  },
+  {
+    "run_id": "itemknn_cosine_movielens25m_2025-12-21_22-15-40_thr3.5_bm250",
+    "date": "2025-12-21",
+    "time": "22:15:40",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "split": "val",
+    "evaluation": {
+      "k": 10,
+      "subsample_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49969,
+      "hit_users": 15,
+      "skipped_empty_true": 31,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 3.5,
+      "use_ratings": false,
+      "weighting": {
+        "method": "none"
+      }
+    },
+    "model": {
+      "name": "itemknn_cosine",
+      "implementation": "implicit.nearest_neighbours.CosineRecommender",
+      "params": {
+        "K": 200,
+        "fit_weight": "tfidf"
+      },
+      "recommendation_mode": "standard_recommend_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 3.0018611539154277e-05,
+      "recall@10": 0.00030018611539154276,
+      "ndcg@10": 0.00011612784143205036,
+      "map@10": 6.003722307830855e-05,
+      "mrr@10": 6.003722307830855e-05
+    },
+    "notes": "Dev baseline on val split (for reference only)."
+  },
+  {
+    "run_id": "als_movielens25m_2025-12-22_19-02-22_thr3.5_bm251",
+    "date": "2025-12-22",
+    "time": "19:02:22",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "split": "val",
+    "evaluation": {
+      "k": 10,
+      "subsample_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49969,
+      "hit_users": 5367,
+      "skipped_empty_true": 31,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 3.5,
+      "use_ratings": false,
+      "weighting": {
+        "method": "bm25",
+        "K1": 100,
+        "B": 0.8
+      }
+    },
+    "model": {
+      "name": "als",
+      "implementation": "implicit.als.AlternatingLeastSquares",
+      "params": {
+        "factors": 64,
+        "regularization": 0.01,
+        "iterations": 15
+      },
+      "recommendation_mode": "fast_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.0107406592087094,
+      "recall@10": 0.107406592087094,
+      "ndcg@10": 0.05375834811815738,
+      "map@10": 0.03768845414315606,
+      "mrr@10": 0.03768845414315606,
+      "avg_pop_rank@10": 286.45258860493504
+    },
+    "notes": "Dev evaluation on val split (do not tune on test)."
+  },
+  {
+    "run_id": "itemknn_cosine_movielens25m_2025-12-22_19-13-19_thr3.5_bm251",
+    "date": "2025-12-22",
+    "time": "19:13:19",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "split": "val",
+    "evaluation": {
+      "k": 10,
+      "subsample_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49969,
+      "hit_users": 0,
+      "skipped_empty_true": 31,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 3.5,
+      "use_ratings": false,
+      "weighting": {
+        "method": "bm25",
+        "K1": 100,
+        "B": 0.8
+      }
+    },
+    "model": {
+      "name": "itemknn_cosine",
+      "implementation": "implicit.nearest_neighbours.CosineRecommender",
+      "params": {
+        "K": 200,
+        "fit_weight": "bm25"
+      },
+      "recommendation_mode": "standard_recommend_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.0,
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "map@10": 0.0,
+      "mrr@10": 0.0,
+      "avg_pop_rank@10": 2000.0
+    },
+    "notes": "Dev baseline on val split (for reference only)."
+  },
+  {
+    "run_id": "als_movielens25m_2025-12-22_19-14-37_thr4.0_bm250",
+    "date": "2025-12-22",
+    "time": "19:14:37",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "split": "val",
+    "evaluation": {
+      "k": 10,
+      "subsample_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49949,
+      "hit_users": 5469,
+      "skipped_empty_true": 51,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 4.0,
+      "use_ratings": false,
+      "weighting": {
+        "method": "none"
+      }
+    },
+    "model": {
+      "name": "als",
+      "implementation": "implicit.als.AlternatingLeastSquares",
+      "params": {
+        "factors": 64,
+        "regularization": 0.01,
+        "iterations": 15
+      },
+      "recommendation_mode": "fast_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.010949168151514546,
+      "recall@10": 0.10949168151514545,
+      "ndcg@10": 0.05714063029469092,
+      "map@10": 0.0414314028880887,
+      "mrr@10": 0.0414314028880887,
+      "avg_pop_rank@10": 142.71240265070372
+    },
+    "notes": "Dev evaluation on val split (do not tune on test)."
+  },
+  {
+    "run_id": "als_diverse_movielens25m_2025-12-22_19-24-32_thr4.0_bm250",
+    "date": "2025-12-22",
+    "time": "19:24:32",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "split": "val",
+    "evaluation": {
+      "k": 10,
+      "subsample_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49949,
+      "hit_users": 5439,
+      "skipped_empty_true": 51,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 4.0,
+      "use_ratings": false,
+      "weighting": {
+        "method": "none"
+      }
+    },
+    "model": {
+      "name": "als_diverse",
+      "implementation": "implicit.als.AlternatingLeastSquares + pop-penalty rerank",
+      "params": {
+        "factors": 64,
+        "regularization": 0.01,
+        "iterations": 15,
+        "diversity_lambda": 0.1,
+        "candidates_mult": 20
+      },
+      "recommendation_mode": "als_candidates_then_rerank"
+    },
+    "metrics": {
+      "precision@10": 0.01088910688902681,
+      "recall@10": 0.10889106889026808,
+      "ndcg@10": 0.05680296020947415,
+      "map@10": 0.041165186903339826,
+      "mrr@10": 0.041165186903339826,
+      "avg_pop_rank@10": 210.38399167150493
+    },
+    "notes": "Dev evaluation on val split with popularity-penalty rerank (A/B vs ALS).",
+    "tag": "diversity_rerank"
+  },
+  {
+    "run_id": "als_diverse_movielens25m_2025-12-22_19-25-06_thr4.0_bm250",
+    "date": "2025-12-22",
+    "time": "19:25:06",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "split": "val",
+    "evaluation": {
+      "k": 10,
+      "subsample_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49949,
+      "hit_users": 5129,
+      "skipped_empty_true": 51,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 4.0,
+      "use_ratings": false,
+      "weighting": {
+        "method": "none"
+      }
+    },
+    "model": {
+      "name": "als_diverse",
+      "implementation": "implicit.als.AlternatingLeastSquares + pop-penalty rerank",
+      "params": {
+        "factors": 64,
+        "regularization": 0.01,
+        "iterations": 15,
+        "diversity_lambda": 0.2,
+        "candidates_mult": 20
+      },
+      "recommendation_mode": "als_candidates_then_rerank"
+    },
+    "metrics": {
+      "precision@10": 0.010268473843320188,
+      "recall@10": 0.10268473843320186,
+      "ndcg@10": 0.05435725857621203,
+      "map@10": 0.03979984981506534,
+      "mrr@10": 0.03979984981506534,
+      "avg_pop_rank@10": 337.60745160063266
+    },
+    "notes": "Dev evaluation on val split with popularity-penalty rerank (A/B vs ALS).",
+    "tag": "diversity_rerank"
+  },
+  {
+    "run_id": "als_diverse_movielens25m_2025-12-22_19-25-40_thr4.0_bm250",
+    "date": "2025-12-22",
+    "time": "19:25:40",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "split": "val",
+    "evaluation": {
+      "k": 10,
+      "subsample_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49949,
+      "hit_users": 4570,
+      "skipped_empty_true": 51,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 4.0,
+      "use_ratings": false,
+      "weighting": {
+        "method": "none"
+      }
+    },
+    "model": {
+      "name": "als_diverse",
+      "implementation": "implicit.als.AlternatingLeastSquares + pop-penalty rerank",
+      "params": {
+        "factors": 64,
+        "regularization": 0.01,
+        "iterations": 15,
+        "diversity_lambda": 0.3,
+        "candidates_mult": 20
+      },
+      "recommendation_mode": "als_candidates_then_rerank"
+    },
+    "metrics": {
+      "precision@10": 0.009149332318965345,
+      "recall@10": 0.09149332318965345,
+      "ndcg@10": 0.04946508174254269,
+      "map@10": 0.0367745497232574,
+      "mrr@10": 0.0367745497232574,
+      "avg_pop_rank@10": 520.0915273579051
+    },
+    "notes": "Dev evaluation on val split with popularity-penalty rerank (A/B vs ALS).",
+    "tag": "diversity_rerank"
+  },
+  {
+    "run_id": "itemknn_cosine_movielens25m_2025-12-22_19-25-40_thr4.0_bm250",
+    "date": "2025-12-22",
+    "time": "19:25:40",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "split": "val",
+    "evaluation": {
+      "k": 10,
+      "subsample_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49949,
+      "hit_users": 5,
+      "skipped_empty_true": 51,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 4.0,
+      "use_ratings": false,
+      "weighting": {
+        "method": "none"
+      }
+    },
+    "model": {
+      "name": "itemknn_cosine",
+      "implementation": "implicit.nearest_neighbours.CosineRecommender",
+      "params": {
+        "K": 200,
+        "fit_weight": "tfidf"
+      },
+      "recommendation_mode": "standard_recommend_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 1.0010210414622916e-05,
+      "recall@10": 0.00010010210414622915,
+      "ndcg@10": 4.849782635981781e-05,
+      "map@10": 3.203267332679333e-05,
+      "mrr@10": 3.203267332679333e-05,
+      "avg_pop_rank@10": 2000.0
+    },
+    "notes": "Dev baseline on val split (for reference only)."
+  },
+  {
+    "run_id": "als_movielens25m_2025-12-22_19-26-01_thr4.0_bm250",
+    "date": "2025-12-22",
+    "time": "19:26:01",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "split": "test",
+    "evaluation": {
+      "k": 10,
+      "subsample_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49954,
+      "hit_users": 4698,
+      "skipped_empty_true": 46,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 4.0,
+      "use_ratings": false,
+      "weighting": {
+        "method": "none"
+      }
+    },
+    "model": {
+      "name": "als",
+      "implementation": "implicit.als.AlternatingLeastSquares",
+      "params": {
+        "factors": 64,
+        "regularization": 0.01,
+        "iterations": 15
+      },
+      "recommendation_mode": "fast_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.00940465228009769,
+      "recall@10": 0.0940465228009769,
+      "ndcg@10": 0.04720389239791937,
+      "map@10": 0.03315397785009828,
+      "mrr@10": 0.03315397785009828,
+      "avg_pop_rank@10": 143.02094727148977
+    },
+    "notes": "BASELINE_V2 final test report (do not tune on this).",
+    "tag": "baseline_v2_report"
+  },
+  {
+    "run_id": "als_movielens25m_2025-12-22_19-27-26_thr3.5_bm250",
+    "date": "2025-12-22",
+    "time": "19:27:26",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "split": "val",
+    "evaluation": {
+      "k": 10,
+      "subsample_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49969,
+      "hit_users": 5355,
+      "skipped_empty_true": 31,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 3.5,
+      "use_ratings": false,
+      "weighting": {
+        "method": "none"
+      }
+    },
+    "model": {
+      "name": "als",
+      "implementation": "implicit.als.AlternatingLeastSquares",
+      "params": {
+        "factors": 64,
+        "regularization": 0.01,
+        "iterations": 15
+      },
+      "recommendation_mode": "fast_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 0.010716644319478077,
+      "recall@10": 0.10716644319478076,
+      "ndcg@10": 0.055380631553008895,
+      "map@10": 0.03980822077942293,
+      "mrr@10": 0.03980822077942293,
+      "avg_pop_rank@10": 149.21059456863256
+    },
+    "notes": "Dev evaluation on val split (do not tune on test)."
+  },
+  {
+    "run_id": "itemknn_cosine_movielens25m_2025-12-22_19-39-45_thr3.5_bm250",
+    "date": "2025-12-22",
+    "time": "19:39:45",
+    "dataset": "MovieLens 25M",
+    "task": "Top-K recommendation",
+    "split": "val",
+    "evaluation": {
+      "k": 10,
+      "subsample_users": 50000,
+      "random_seed": 42,
+      "n_users_eval": 49969,
+      "hit_users": 15,
+      "skipped_empty_true": 31,
+      "skipped_empty_recs": 0
+    },
+    "preprocessing": {
+      "implicit_feedback": true,
+      "rating_threshold": 3.5,
+      "use_ratings": false,
+      "weighting": {
+        "method": "none"
+      }
+    },
+    "model": {
+      "name": "itemknn_cosine",
+      "implementation": "implicit.nearest_neighbours.CosineRecommender",
+      "params": {
+        "K": 200,
+        "fit_weight": "tfidf"
+      },
+      "recommendation_mode": "standard_recommend_then_fallback"
+    },
+    "metrics": {
+      "precision@10": 3.0018611539154277e-05,
+      "recall@10": 0.00030018611539154276,
+      "ndcg@10": 0.00011612784143205036,
+      "map@10": 6.003722307830855e-05,
+      "mrr@10": 6.003722307830855e-05,
+      "avg_pop_rank@10": 1735.0
+    },
+    "notes": "Dev baseline on val split (for reference only)."
+  }
+]
