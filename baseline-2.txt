@@ -1,5 +1,0 @@
-	•	rating filter >= 4.0
-	•	use_ratings=False
-	•	bm25_weight(K1=100, B=0.8)
-	•	ALS: factors=64, reg=0.01, iters=15
-	•	recommend workaround: single-row + recalculate_user=True
